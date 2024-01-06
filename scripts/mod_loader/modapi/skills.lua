@@ -166,6 +166,18 @@ SkillEffect.AddQueuedImpactSound = function(self, loc, sound)
 	self.q_effect:back().loc = loc
 end
 
+SkillEffect.AddQueuedProjectileFromLoc = function(self, origin, damage, graphics, delay)
+	local fx = SkillEffect()
+	fx["AddProjectile"](fx, origin, damage, graphics, delay)
+	self.q_effect:AppendAll(fx.effect)
+end
+
+SkillEffect.AddQueuedArtilleryFromLoc = function(self, origin, damage, graphics, delay)
+	local fx = SkillEffect()
+	fx["AddArtillery"](fx, origin, damage, graphics, delay)
+	self.q_effect:AppendAll(fx.effect)
+end
+
 
 -- //////////////////////////////////////////////////////////////////////////
 -- Adds missing queued functions to SkillEffect, by Lemonymous
